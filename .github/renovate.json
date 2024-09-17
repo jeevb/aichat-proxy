@@ -10,26 +10,15 @@
         "docker"
       ],
       "pinDigests": true
-    },
+    }
+  ],
+  "customManagers": [
     {
-      "matchDatasources": [
-        "github-releases"
-      ],
-      "extractVersion": "^v(?<version>.*)$",
-      "matchPackageNames": [
-        "/^sigoden/aichat/"
-      ]
-    },
-    {
-      "matchFileNames": [
-        "Dockerfile"
-      ],
-      "matchDatasources": [
-        "github-releases"
-      ],
-      "extractVersion": "^v(?<version>\\d+\\.\\d+\\.\\d+)$",
-      "matchPackageNames": [
-        "/^sigoden/aichat/"
+      "customType": "regex",
+      "description": "Update _VERSION variables in Dockerfiles",
+      "fileMatch": ["(^|/|\\.)Dockerfile$", "(^|/)Dockerfile\\.[^/]*$"],
+      "matchStrings": [
+        "# renovate: datasource=(?<datasource>[a-z-]+?)(?: depName=(?<depName>.+?))? packageName=(?<packageName>.+?)(?: versioning=(?<versioning>[a-z-]+?))?\\s(?:ENV|ARG) .+?_VERSION=(?<currentValue>.+?)\\s"
       ]
     }
   ],
