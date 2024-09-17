@@ -12,16 +12,14 @@
       "matchDatasources": ["github-releases"],
       "matchPackagePatterns": ["^sigoden/aichat"],
       "extractVersion": "^v(?<version>.*)$"
-    }
-  ],
-  "regexManagers": [
+    },
     {
-      "fileMatch": ["^Dockerfile$"],
-      "matchStrings": [
-        "ARG AICHAT_VERSION=\"(?<currentValue>.*?)\""
-      ],
-      "depNameTemplate": "sigoden/aichat",
-      "datasourceTemplate": "github-releases"
+      "matchFileNames": ["Dockerfile"],
+      "matchDatasources": ["github-releases"],
+      "matchPackagePatterns": ["^sigoden/aichat"],
+      "extractVersion": "^v(?<version>\\d+\\.\\d+\\.\\d+)$",
+      "depNameTemplate": "AICHAT_VERSION",
+      "versioningTemplate": "semver"
     }
   ],
   "automerge": true
