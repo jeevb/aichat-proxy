@@ -28,8 +28,6 @@
         "github-releases"
       ],
       "extractVersion": "^v(?<version>\\d+\\.\\d+\\.\\d+)$",
-      "depNameTemplate": "AICHAT_VERSION",
-      "versioningTemplate": "semver",
       "matchPackageNames": [
         "/^sigoden/aichat/"
       ]
