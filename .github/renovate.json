@@ -1,25 +1,25 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
-    "config:base"
+    "mergeConfidence:all-badges",
+    "config:recommended"
   ],
   "packageRules": [
     {
-      "matchDatasources": ["docker"],
+      "matchDatasources": [
+        "docker"
+      ],
       "pinDigests": true
-    },
+    }
+  ],
+  "customManagers": [
     {
-      "matchDatasources": ["github-releases"],
-      "matchPackagePatterns": ["^sigoden/aichat"],
-      "extractVersion": "^v(?<version>.*)$"
-    },
-    {
-      "matchFileNames": ["Dockerfile"],
-      "matchDatasources": ["github-releases"],
-      "matchPackagePatterns": ["^sigoden/aichat"],
-      "extractVersion": "^v(?<version>\\d+\\.\\d+\\.\\d+)$",
-      "depNameTemplate": "AICHAT_VERSION",
-      "versioningTemplate": "semver"
+      "customType": "regex",
+      "description": "Update _VERSION variables in Dockerfiles",
+      "fileMatch": ["(^|/|\\.)Dockerfile$", "(^|/)Dockerfile\\.[^/]*$"],
+      "matchStrings": [
+        "# renovate: datasource=(?<datasource>[a-z-]+?)(?: depName=(?<depName>.+?))? packageName=(?<packageName>.+?)(?: versioning=(?<versioning>[a-z-]+?))?\\s(?:ENV|ARG) .+?_VERSION=(?<currentValue>.+?)\\s"
+      ]
     }
   ],
   "automerge": true
