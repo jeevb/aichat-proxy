@@ -3,9 +3,10 @@ FROM ghcr.io/bxnlabs/containers/base:20240917.3_e5afd46@sha256:6cdc288d528758085
 
 FROM base AS build
 
-# renovate: datasource=github-releases depName=aichat packageName=sigoden/aichat versioning=semver
-ARG AICHAT_VERSION=v0.21.1
 ARG TARGETPLATFORM
+
+# renovate: datasource=github-releases packageName=sigoden/aichat versioning=semver
+ARG AICHAT_VERSION=v0.21.1
 
 RUN apt-get update && apt-get install curl
 
