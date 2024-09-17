@@ -23,5 +23,6 @@
       "depNameTemplate": "sigoden/aichat",
       "datasourceTemplate": "github-releases"
     }
-  ]
+  ],
+  "automerge": true
 }
