@@ -1,25 +1,38 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
-    "config:base"
+    "mergeConfidence:all-badges",
+    "config:recommended"
   ],
   "packageRules": [
     {
-      "matchDatasources": ["docker"],
+      "matchDatasources": [
+        "docker"
+      ],
       "pinDigests": true
     },
     {
-      "matchDatasources": ["github-releases"],
-      "matchPackagePatterns": ["^sigoden/aichat"],
-      "extractVersion": "^v(?<version>.*)$"
+      "matchDatasources": [
+        "github-releases"
+      ],
+      "extractVersion": "^v(?<version>.*)$",
+      "matchPackageNames": [
+        "/^sigoden/aichat/"
+      ]
     },
     {
-      "matchFileNames": ["Dockerfile"],
-      "matchDatasources": ["github-releases"],
-      "matchPackagePatterns": ["^sigoden/aichat"],
+      "matchFileNames": [
+        "Dockerfile"
+      ],
+      "matchDatasources": [
+        "github-releases"
+      ],
       "extractVersion": "^v(?<version>\\d+\\.\\d+\\.\\d+)$",
       "depNameTemplate": "AICHAT_VERSION",
-      "versioningTemplate": "semver"
+      "versioningTemplate": "semver",
+      "matchPackageNames": [
+        "/^sigoden/aichat/"
+      ]
     }
   ],
   "automerge": true
