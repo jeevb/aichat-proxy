@@ -9,7 +9,8 @@
       "matchDatasources": [
         "docker"
       ],
-      "pinDigests": true
+      "pinDigests": true,
+      "versioning": "loose"
     }
   ],
   "customManagers": [
