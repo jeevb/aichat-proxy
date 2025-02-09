@@ -25,4 +25,7 @@ FROM base
 
 COPY --from=build /build/aichat ${BXN_HOME}/bin/aichat
 
+# Configuration
+COPY ./aichat.yaml /etc/aichat/
+
 USER nonroot
