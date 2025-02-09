@@ -23,9 +23,11 @@ RUN if [ "${TARGETPLATFORM}" = "linux/arm64" ]; then \
 
 FROM base
 
+ENV AICHAT_CONFIG_DIR=/etc/aichat
+
 COPY --from=build /build/aichat ${BXN_HOME}/bin/aichat
 
 # Configuration
-COPY ./aichat.yaml /etc/aichat/
+COPY ./config.yaml /etc/aichat/
 
 USER nonroot
