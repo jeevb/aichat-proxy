@@ -1,4 +1,4 @@
-FROM ghcr.io/bxnlabs/containers/base:20241211.1_5bf211c@sha256:a2fe7a1ee90126dc22b50a1f98c4be14cd29d3b3abd8334cd57eda1cb85fc197 AS base
+FROM ghcr.io/bxnlabs/containers/base:20250207.1_9df38e1@sha256:137dc9e3be158f593d2d815db3f1a214823a6c43a26424979b5d2a8d9cecff77 AS base
 
 
 FROM base AS build
@@ -6,7 +6,7 @@ FROM base AS build
 ARG TARGETPLATFORM
 
 # renovate: datasource=github-releases packageName=sigoden/aichat versioning=semver
-ARG AICHAT_VERSION=v0.25.0
+ARG AICHAT_VERSION=v0.27.0
 
 RUN apt-get update && apt-get install curl
 
