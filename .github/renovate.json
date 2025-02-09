@@ -16,7 +16,7 @@
       "matchPackageNames": [
         "sigoden/aichat"
       ],
-      "ignoreUnstable": true,
+      "ignoreUnstable": false,
       "versioning": "semver"
     }
   ],
