@@ -11,6 +11,13 @@
       ],
       "pinDigests": true,
       "versioning": "loose"
+    },
+    {
+      "matchPackageNames": [
+        "sigoden/aichat"
+      ],
+      "ignoreUnstable": true,
+      "versioning": "semver"
     }
   ],
   "customManagers": [
